@@ -1,3 +1,11 @@
+"""
+alien_invasion.py
+Johan D. Ramirez Maldonado
+This file will run the Alien Invasion, a playable game
+Starter Code forked from: RedBeard41/alien_invasion_starter
+7/24/26
+"""
+
 import sys
 import pygame
 from settings import Settings
@@ -5,8 +13,9 @@ from ship import Ship
 from arsenal import Arsenal
 
 class AlienInvasion:
-
+    """Stores everything Alien Invasion needs to run properly"""
     def __init__(self):
+        """Initial setup"""
         pygame.init()
         self.settings = Settings()
 
@@ -31,6 +40,7 @@ class AlienInvasion:
 
 
     def run_game(self):
+        """Runs the game"""
         # Game Loop
         while self.running:
             self._check_events()
@@ -39,11 +49,13 @@ class AlienInvasion:
             self.clock.tick(self.settings.FPS)
 
     def _update_screen(self):
+        """Updates the screen to create a background and the ship"""
         self.screen.blit(self.bg, (0,0))
         self.ship.draw()
         pygame.display.flip()
 
     def _check_events(self):
+        """Checks events (inputs) for movement, firing lasers, and to quit game."""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
@@ -55,12 +67,14 @@ class AlienInvasion:
                 self._check_keyup_events(event)
 
     def _check_keyup_events(self, event):
+        """Checks when the key is not being pressed down"""
         if event.key == pygame.K_UP:
             self.ship.moving_up = False
         elif event.key == pygame.K_DOWN:
             self.ship.moving_down = False
 
     def _check_keydown_events(self, event):
+        """Checks when the key is pressed down"""
         if event.key == pygame.K_UP:
             self.ship.moving_up = True
         elif event.key == pygame.K_DOWN:

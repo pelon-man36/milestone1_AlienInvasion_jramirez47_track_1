@@ -1,8 +1,21 @@
+"""
+settings.py
+Johan D. Ramirez Maldonado
+This file stores settings that is used in the other files
+Starter Code forked from: RedBeard41/alien_invasion_starter
+7/24/26
+"""
+
 from pathlib import Path
 class Settings:
+    """Stores the settings for the other files"""
 
     def __init__(self):
-        self.name: str = "Alien Invasion"
+        """
+        The stored information for the files, including:
+            screen size, images (including sizes), sounds, and game settings like ship and bullet speed
+        """
+        self.name: str = "Alien Invasion - Track 1"
         self.screen_w = 1200
         self.screen_h = 800
         self.FPS = 60

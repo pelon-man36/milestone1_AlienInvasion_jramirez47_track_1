@@ -1,3 +1,10 @@
+"""
+alien_invasion.py
+Johan D. Ramirez Maldonado
+This file will create the ship, which can be moved about on screen
+Starter Code forked from: RedBeard41/alien_invasion_starter
+7/24/26
+"""
 import pygame
 from typing import TYPE_CHECKING
 from settings import Settings
@@ -6,7 +13,10 @@ if TYPE_CHECKING:
     from arsenal import Arsenal
 
 class Ship:
+    """Everything to create the ship"""
+
     def __init__(self, game: "AlienInvasion", arsenal: "Arsenal"):
+        """Initial setup for ship"""
         self.game = game
         self.settings = game.settings
         self.screen = game.screen
@@ -26,11 +36,13 @@ class Ship:
         self.arsenal = arsenal
 
     def update(self):
+        """Updates the position of the ship, plus its Arsenal"""
         # Updating the position of ship
         self._update_ship_movement()
         self.arsenal.update_arsenal()
 
     def _update_ship_movement(self):
+        """The ships movement for up & down"""
         temp_speed = self.settings.ship_speed
         if self.moving_up and self.rect.top > self.boundaries.top:
             self.y -= temp_speed
@@ -40,8 +52,10 @@ class Ship:
         self.rect.y = self.y
 
     def draw(self):
+        """Draws the ship"""
         self.arsenal.draw()
         self.screen.blit(self.image, self.rect)
 
     def fire(self):
+        """The ship fires a bullet, if fire_bullet is True"""
         return self.arsenal.fire_bullet()
