@@ -30,10 +30,13 @@ class Alien(Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-        # self.x = float(self.rect.x)
+        self.x = float(self.rect.x)
+        self.y = float(self.rect.y)
 
     def update(self):
-        pass
+        temp_speed = self.settings.fleet_speed
+        self.x += temp_speed
+        self.rect.x = self.x
 
     def draw_alien(self):
         """Draws the bullet onto the screen"""
