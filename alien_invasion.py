@@ -68,7 +68,7 @@ class AlienInvasion:
             # lose a life
 
         # check collisons for aliens/bottom of screen
-        if self.alien_fleet.check_fleet_bottom():
+        if self.alien_fleet.check_fleet_left():
             self._check_game_status()
 
         # check collisons of bullets and aliens

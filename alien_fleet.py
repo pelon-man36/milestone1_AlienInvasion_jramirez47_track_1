@@ -75,7 +75,7 @@ class AlienFleet():
 
     def drop_alien_fleet(self):
         for alien in self.fleet:
-            alien.y += self.fleet_drop_speed
+            alien.x -= self.fleet_drop_speed
 
     def update_fleet(self):
         self._check_fleet_edges()
@@ -89,12 +89,12 @@ class AlienFleet():
     def check_collisons(self, other_group):
         return pygame.sprite.groupcollide(self.fleet, other_group, True, True)
 
-    def check_fleet_bottom(self):
+    def check_fleet_left(self):
         alien: Alien
         for alien in self.fleet:
-            if alien.rect.bottom >= self.settings.screen_h:
+            if alien.rect.left <= 0:
                 return True
         return False
-
+    
     def check_destroyed_status(self):
         return not self.fleet

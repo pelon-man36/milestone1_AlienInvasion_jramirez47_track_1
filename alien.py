@@ -39,13 +39,13 @@ class Alien(Sprite):
         """Important! Change later, specifically the x/y"""
         temp_speed = self.settings.fleet_speed
 
-        self.x += temp_speed * self.fleet.fleet_direction
+        self.y += temp_speed * self.fleet.fleet_direction
         self.rect.x = self.x
         self.rect.y = self.y
 
     def check_edges(self):
         """Important! Change here as well!"""
-        return (self.rect.right >= self.boundaries.right or self.rect.left <= self.boundaries.left)
+        return (self.rect.top <= self.boundaries.top or self.rect.bottom >= self.boundaries.bottom)
 
     def draw_alien(self):
         """Draws the bullet onto the screen"""
