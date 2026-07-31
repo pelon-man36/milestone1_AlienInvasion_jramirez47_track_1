@@ -3,7 +3,7 @@ alien_invasion.py
 Johan D. Ramirez Maldonado
 This file will run the Alien Invasion, a playable game
 Starter Code forked from: RedBeard41/alien_invasion_starter
-7/24/26
+7/31/26
 """
 
 import sys
@@ -62,6 +62,7 @@ class AlienInvasion:
             self.clock.tick(self.settings.FPS)
 
     def _check_collisons(self):
+        """Checks collisons of ship, fleet, and bullets"""
         if self.ship.check_collisons(self.alien_fleet.fleet):
             self._check_game_status()
 
@@ -81,6 +82,10 @@ class AlienInvasion:
             self._reset_level()
 
     def _check_game_status(self):
+        """
+        Checks how many ships are left before subtracting, resets level, and ends game if
+        there are no ships left.
+        """
         if self.game_stats.ships_left > 0:
             self.game_stats.ships_left -= 1
             self._reset_level()
@@ -89,6 +94,7 @@ class AlienInvasion:
             self.game_active = False
 
     def _reset_level(self):
+        """Resets the level."""
         self.ship.arsenal.arsenal.empty()
         self.alien_fleet.fleet.empty()
         self.alien_fleet.create_Fleet()

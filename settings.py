@@ -3,7 +3,7 @@ settings.py
 Johan D. Ramirez Maldonado
 This file stores settings that is used in the other files
 Starter Code forked from: RedBeard41/alien_invasion_starter
-7/24/26
+7/31/26
 """
 
 from pathlib import Path

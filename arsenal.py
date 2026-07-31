@@ -3,7 +3,7 @@ alien_invasion.py
 Johan D. Ramirez Maldonado
 This file will create the ships arsenal, storing bullets and firing if able
 Starter Code forked from: RedBeard41/alien_invasion_starter
-7/24/26
+7/31/26
 """
 import pygame
 from typing import TYPE_CHECKING

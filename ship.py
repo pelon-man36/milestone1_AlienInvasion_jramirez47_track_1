@@ -3,7 +3,7 @@ alien_invasion.py
 Johan D. Ramirez Maldonado
 This file will create the ship, which can be moved about on screen
 Starter Code forked from: RedBeard41/alien_invasion_starter
-7/24/26
+7/31/26
 """
 import pygame
 from typing import TYPE_CHECKING
@@ -35,6 +35,7 @@ class Ship:
         self.arsenal = arsenal
 
     def _center_ship(self):
+        """Centers the ship."""
         self.rect.midleft = self.boundaries.midleft
         self.y = float(self.rect.y)
 
@@ -64,6 +65,7 @@ class Ship:
         return self.arsenal.fire_bullet()
 
     def check_collisons(self, other_group):
+        """Checks ship collisons with other sprites, specifically aliens."""
         if pygame.sprite.spritecollideany(self, other_group):
             self._center_ship()
             return True

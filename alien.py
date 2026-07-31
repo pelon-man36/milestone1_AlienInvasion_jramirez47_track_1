@@ -1,9 +1,9 @@
 """
 alien_invasion.py
 Johan D. Ramirez Maldonado
-This file will create a bullet that the ship uses
+This file will create an alien.
 Starter Code forked from: RedBeard41/alien_invasion_starter
-7/24/26
+7/31/26
 """
 import pygame
 from pygame.sprite import Sprite
@@ -15,7 +15,7 @@ class Alien(Sprite):
     """Stores everything needed to create a bullet"""
 
     def __init__(self, fleet: "AlienFleet", x: float, y: float):
-        """Initial setup"""
+        """Initial setup."""
         super().__init__()
 
         self.fleet = fleet
@@ -36,7 +36,7 @@ class Alien(Sprite):
         self.y = float(self.rect.y)
 
     def update(self):
-        """Important! Change later, specifically the x/y"""
+        """Updates the aliens movement."""
         temp_speed = self.settings.fleet_speed
 
         self.y += temp_speed * self.fleet.fleet_direction
@@ -44,9 +44,9 @@ class Alien(Sprite):
         self.rect.y = self.y
 
     def check_edges(self):
-        """Important! Change here as well!"""
+        """Aliens check top and bottom boundaries."""
         return (self.rect.top <= self.boundaries.top or self.rect.bottom >= self.boundaries.bottom)
 
     def draw_alien(self):
-        """Draws the bullet onto the screen"""
+        """Draws the alien onto the screen"""
         self.screen.blit(self.image, self.rect)
