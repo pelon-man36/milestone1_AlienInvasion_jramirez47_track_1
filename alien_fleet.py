@@ -23,9 +23,9 @@ class AlienFleet():
 
         fleet_w, fleet_h = self.calculate_fleet_size(alien_w, screen_w, alien_h, screen_h)
 
-        x_offset, y_offset = self.calculate_offset(alien_w, alien_h, screen_w, fleet_w, fleet_h)
+        x_offset, y_offset = self.calculate_offset(alien_w, alien_h, screen_h, fleet_w, fleet_h)
 
-        self._create_rectangle_fleet(alien_w, alien_h, fleet_w, fleet_h, x_offset, y_offset)
+        self._create_rectangle_fleet(alien_w, alien_h, fleet_h, fleet_w, x_offset, y_offset)
 
     def _create_rectangle_fleet(self, alien_w, alien_h, fleet_w, fleet_h, x_offset, y_offset):
         for row in range(fleet_h):
@@ -36,17 +36,17 @@ class AlienFleet():
                     continue
                 self._create_alien(current_x, current_y)
 
-    def calculate_offset(self, alien_w, alien_h, screen_w, fleet_w, fleet_h):
-        half_screen = self.settings.screen_h//2
+    def calculate_offset(self, alien_w, alien_h, screen_h, fleet_w, fleet_h):
+        half_screen = self.settings.screen_w//2
         fleet_horizontal_space = fleet_w * alien_w
         fleet_vertical_space = fleet_h * alien_h
-        x_offset = int((screen_w - fleet_horizontal_space)//2)
-        y_offset = int((half_screen - fleet_vertical_space)//2)
-        return x_offset,y_offset
+        y_offset = int((screen_h + fleet_horizontal_space)//2)
+        x_offset = int((half_screen - fleet_vertical_space)//2)
+        return y_offset,x_offset
 
     def calculate_fleet_size(self, alien_w, screen_w, alien_h, screen_h):
-        fleet_w = (screen_w//alien_w)
-        fleet_h = ((screen_h / 2)//alien_h)
+        fleet_w = ((screen_w / 2)//alien_w)
+        fleet_h = (screen_h//alien_h)
 
         if fleet_w % 2 == 0:
             fleet_w -= 1
@@ -58,7 +58,7 @@ class AlienFleet():
         else:
             fleet_h -= 2
 
-        return int(fleet_w), int(fleet_h)
+        return int(fleet_h), int(fleet_w)
 
     def _create_alien(self, current_x: int, current_y: int):
         new_alien = Alien(self, current_x, current_y)
