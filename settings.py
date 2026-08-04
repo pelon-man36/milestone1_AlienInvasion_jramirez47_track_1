@@ -41,5 +41,15 @@ class Settings:
         self.fleet_speed = 2
         self.fleet_direction = 1
         self.fleet_drop_speed = 40
+
+        self.button_w = 200
+        self.button_h = 50
+        self.button_color = (0, 135, 50)
+
+        self.text_color = (255, 255, 255)
+        self.button_font_size = 45
+        self.HUD_font_size = 20
+        self.font_file = Path.cwd() / "Assets" / "Fonts" / "Silkscreen" / "Silkscreen-Bold.ttf"
+
         
         
