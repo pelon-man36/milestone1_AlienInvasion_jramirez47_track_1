@@ -3,7 +3,7 @@ settings.py
 Johan D. Ramirez Maldonado
 This file stores settings that is used in the other files
 Starter Code forked from: RedBeard41/alien_invasion_starter
-7/31/26
+8/6/26
 """
 
 from pathlib import Path
@@ -60,6 +60,7 @@ class Settings:
         self.alien_points = 50
 
     def increase_difficulty(self):
+        """Increases the games difficulty by adjusting ship, bullet, and fleet speed"""
         self.ship_speed *= self.difficulty_scale
         self.bullet_speed *= self.difficulty_scale
         self.fleet_speed *= self.difficulty_scale

@@ -3,7 +3,7 @@ alien_invasion.py
 Johan D. Ramirez Maldonado
 This file will run the Alien Invasion, a playable game
 Starter Code forked from: RedBeard41/alien_invasion_starter
-7/31/26
+8/6/26
 """
 
 import sys
@@ -112,6 +112,7 @@ class AlienInvasion:
         self.alien_fleet.create_Fleet()
 
     def restart_game(self):
+        """Restarts the game"""
         self.settings.initialize_dynamic_settings()
         self.game_stats.reset_stats()
         self.HUD.update_scores()
@@ -149,6 +150,7 @@ class AlienInvasion:
                 self._check_button_clicked()
 
     def _check_button_clicked(self):
+        """Checks mouse clicks"""
         mouse_pos = pygame.mouse.get_pos()
         if self.play_button.check_clicked(mouse_pos):
             self.restart_game()

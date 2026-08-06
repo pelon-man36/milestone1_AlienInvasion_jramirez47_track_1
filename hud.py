@@ -1,3 +1,10 @@
+"""
+hud.py
+Johan D. Ramirez Maldonado
+This file displays text on screen like the score and lives
+Starter Code forked from: RedBeard41/alien_invasion_starter
+8/6/26
+"""
 import pygame.font
 # from alien_invasion import AlienInvasion
 # from typing import TYPE_CHECKING
@@ -7,6 +14,7 @@ import pygame.font
 class HUD:
     """Stores everything needed to display game HUD"""
     def __init__(self, game):
+        """Initial setup"""
         self.game = game
         self.settings = game.settings
         self.screen = game.screen
@@ -20,6 +28,7 @@ class HUD:
         self.update_level()
 
     def _setup_life_image(self):
+        """Sets up the images used for the lives"""
         self.life_image = pygame.image.load(self.settings.ship_file)
         self.life_image = pygame.transform.scale(self.life_image, (
             self.settings.ship_h, self.settings.ship_w
@@ -27,11 +36,13 @@ class HUD:
         self.life_rect = self.life_image.get_rect()
 
     def update_scores(self):
+        """Updates the hud score"""
         self._update_score()
         self._update_hi_score()
         self._update_max_score()
 
     def _update_score(self):
+        """Updates the score text"""
         score_str = f"Score: {self.game_stats.score: ,.0f}"
         self.score_image = self.font.render(score_str, True,
             self.settings.text_color, None)
@@ -40,6 +51,7 @@ class HUD:
         self.score_rect.top = self.score_rect.bottom + self.padding
 
     def _update_max_score(self):
+        """Updates the max score text"""
         max_score_str = f"Max-Score: {self.game_stats.max_score: ,.0f}"
         self.max_score_image = self.font.render(max_score_str, True,
             self.settings.text_color, None)
@@ -48,6 +60,7 @@ class HUD:
         self.max_score_rect.top = self.padding
 
     def _update_hi_score(self):
+        """Updates the hi score text"""
         hi_score_str = f"Hi-Score: {self.game_stats.hi_score: ,.0f}"
         self.hi_score_image = self.font.render(hi_score_str, True,
             self.settings.text_color, None)
@@ -56,6 +69,7 @@ class HUD:
         self.hi_score_rect.midtop = (self.boundaries.centerx, self.padding)
 
     def update_level(self):
+        """Updates the level text"""
         level_str = f"Level: {self.game_stats.level: ,.0f}"
         self.level_image = self.font.render(level_str, True,
             self.settings.text_color, None)
@@ -64,6 +78,7 @@ class HUD:
         self.level_rect.top = self.life_rect.bottom + self.padding
 
     def _draw_lives(self):
+        """Draws lives onto the screen"""
         current_x = self.padding
         current_y = self.padding
         for _ in range(self.game_stats.ships_left):
@@ -71,6 +86,7 @@ class HUD:
             current_x += self.life_rect.width + self.padding
 
     def draw(self):
+        """Draws the text onto the screen"""
         self.screen.blit(self.hi_score_image, self.hi_score_rect)
         self.screen.blit(self.max_score_image, self.max_score_rect)
         self.screen.blit(self.score_image, self.score_rect)

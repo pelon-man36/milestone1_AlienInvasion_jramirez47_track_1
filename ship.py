@@ -1,9 +1,9 @@
 """
-alien_invasion.py
+ship.py
 Johan D. Ramirez Maldonado
 This file will create the ship, which can be moved about on screen
 Starter Code forked from: RedBeard41/alien_invasion_starter
-7/31/26
+8/6/26
 """
 import pygame
 from typing import TYPE_CHECKING

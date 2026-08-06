@@ -1,9 +1,9 @@
 """
-alien_invasion.py
+arsenal.py
 Johan D. Ramirez Maldonado
 This file will create the ships arsenal, storing bullets and firing if able
 Starter Code forked from: RedBeard41/alien_invasion_starter
-7/31/26
+8/6/26
 """
 import pygame
 from typing import TYPE_CHECKING
@@ -16,6 +16,7 @@ if TYPE_CHECKING:
 class Arsenal:
     """Stores what is needed for the ships arsenal"""
     def __init__(self, game: "AlienInvasion"):
+        """Initial setup"""
         self.game = game
         self.settings = game.settings
         self.arsenal = pygame.sprite.Group()

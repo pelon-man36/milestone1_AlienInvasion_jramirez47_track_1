@@ -1,9 +1,9 @@
 """
-alien_invasion.py
+bullet.py
 Johan D. Ramirez Maldonado
 This file will create a bullet that the ship uses
 Starter Code forked from: RedBeard41/alien_invasion_starter
-7/31/26
+8/6/26
 """
 import pygame
 from pygame.sprite import Sprite
