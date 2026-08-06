@@ -5,7 +5,7 @@ import pygame.font
 # if TYPE_CHECKING:
 
 class HUD:
-
+    """Stores everything needed to display game HUD"""
     def __init__(self, game):
         self.game = game
         self.settings = game.settings
@@ -22,7 +22,7 @@ class HUD:
     def _setup_life_image(self):
         self.life_image = pygame.image.load(self.settings.ship_file)
         self.life_image = pygame.transform.scale(self.life_image, (
-            self.settings.ship_w, self.settings.ship_h
+            self.settings.ship_h, self.settings.ship_w
         ))
         self.life_rect = self.life_image.get_rect()
 
